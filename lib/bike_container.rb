@@ -1,5 +1,6 @@
 module BikeContainer
   attr_writer :capacity
+  # alias_method :value, :capacity
   DEFAULT_CAPACITY = 20
 
   def bikes
@@ -10,27 +11,31 @@ module BikeContainer
     @capacity ||= DEFAULT_CAPACITY
   end
 
-  def capacity=(value)
-    @capacity = value
-  end
+  # def capacity=(value)
+  #   @capacity = value
+  # end
 
   def dock bike
     fail 'Station Full' if full?
-    @bikes << bike
+    bikes << bike
   end
 
   def release_bike
     fail 'No Bikes Available' if empty?
-    @bikes.pop
+    bikes.pop
+  end
+
+  def bike_count
+    bikes.length
   end
 
   private
 
   def full?
-    @bikes.length >= DEFAULT_CAPACITY
+    bikes.length >= DEFAULT_CAPACITY
   end
 
   def empty?
-    @bikes.reject(&:broken?).length == 0
+    bikes.reject(&:broken?).length == 0
   end
 end
