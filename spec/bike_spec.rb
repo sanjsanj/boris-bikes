@@ -8,4 +8,14 @@ describe Bike do
     subject.break
     expect(subject).to be_broken
   end
+
+  it 'can be fixed' do
+    subject.break
+    subject.fix
+    expect(subject).not_to be_broken
+    # Given # we have a broken bike
+    # When  # we fix it
+    # Then  # the bike should be fixed
+  end
+
 end
