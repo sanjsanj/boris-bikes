@@ -16,7 +16,7 @@ feature 'member of public accesses bike' do
     docking_station = DockingStation.new
     broken_bike = Bike.new
     broken_bike.break
-    docking_station.dock bike
+    docking_station.dock broken_bike
     expect { docking_station.release_bike }.to raise_error 'No Bikes Available'
   end
 end
