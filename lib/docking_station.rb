@@ -1,8 +1,10 @@
 require_relative 'bike'
 
 class DockingStation
-  attr_writer :bike
-  alias_method :dock, :bike=
+  def dock bike
+    fail 'Station Full' if @bike
+    @bike = bike
+  end
 
   def release_bike
     fail 'No Bikes Available' unless @bike
