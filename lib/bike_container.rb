@@ -11,10 +11,6 @@ module BikeContainer
     @capacity ||= DEFAULT_CAPACITY
   end
 
-  # def capacity=(value)
-  #   @capacity = value
-  # end
-
   def dock bike
     fail 'Station Full' if full?
     bikes << bike
